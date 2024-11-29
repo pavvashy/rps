@@ -1,14 +1,29 @@
-let computerNumber = Math.floor(Math.random() * 3) + 1;
+let computerChoice= Math.ceil(Math.random() * 3);
 
 function getComputerChoice() {
-    if (computerNumber===1) {
-        return "Rock";
+switch (computerChoice) {
+    case 1: 
+        return "rock";
+    case 2:
+        return "paper";
+    case 3:
+        return "scissors";
+    default:
+        return null;
     }
-    else if (computerNumber===2) {
-        return "Paper";
-    }
-    else (computerNumber===3) 
-        return "Scissors"
 }
+console.log("Bot chose: " + getComputerChoice(computerChoice))
 
-console.log(getComputerChoice(computerNumber))
+let humanChoice = prompt("Choose rock, paper, or scissors")
+
+function getHumanChoice(humanChoice) {
+        if (humanChoice.toLowerCase() == "rock") {
+            return "rock"
+        }
+        else if (humanChoice.toLowerCase() == "paper") {
+            return "paper"
+        }
+        else (humanChoice.toLowerCase() == "scissors") 
+            return "scissors"
+}
+console.log(getHumanChoice(humanChoice))
