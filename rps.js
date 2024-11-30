@@ -27,15 +27,16 @@ console.log("Bot chose: " + finalComputerChoice)
 let humanChoice = prompt("Choose rock, paper, or scissors")
 
 function getHumanChoice(humanChoice) {
-    switch (humanChoice) {
-        case humanChoice.toLowerCase()=="rock": 
+    switch (humanChoice.toLowerCase()) {
+        case "rock": 
             return "rock";
-        case humanChoice.toLowerCase()=="paper":
+        case "paper":
             return "paper";
-        case humanChoice.toLowerCase()=="scissors":
+        case "scissors":
             return "scissors";
         default:
-            return null;
+            let humanChoice = prompt("You can't choose that... choose rock, paper, or scissors.")
+            return getHumanChoice(humanChoice)
     }
 }
 
@@ -46,60 +47,57 @@ console.log("You chose: " + finalHumanChoice)
 
 // play round function
 function playRound(humanChoice, computerChoice) {
-    // bot chose rock
-    if(computerChoice == "rock") {
-        if(humanChoice == "rock") {
-            return "Tie! Both chose " + computerChoice;
+        // bot chose rock
+        if(computerChoice == "rock") {
+            if(humanChoice == "rock") {
+                return "Tie! Both chose " + computerChoice;
+            }
+            else if(humanChoice == "scissors") {
+                computerScore++
+                return "You lose!" + computerChoice + " beats " + humanChoice;
+            }
+            else {
+                humanScore++
+                return "You win!" + humanChoice + " beats " + computerChoice
+            }
         }
-        else if(humanChoice == "scissors") {
-            computerScore++
-            return "You lose!" + computerChoice + " beats " + humanChoice;
-    
-        }
-        else {
-            humanScore++
-            return "You win!" + humanChoice + " beats " + computerChoice
-        
-        }
-    }
 
-    // bot chose paper
-    if(computerChoice == "paper") {
-        if(humanChoice == "rock") {
-            computerScore++
-            return "You lose!" + computerChoice + " beats " + humanChoice; 
+        // bot chose paper
+        if(computerChoice == "paper") {
+            if(humanChoice == "rock") {
+                computerScore++
+                return "You lose!" + computerChoice + " beats " + humanChoice; 
+            }
+            else if(humanChoice == "scissors") {
+                humanScore++
+                return "You win! " + humanChoice + " beats" + computerChoice;
+            }
+            else {
+                return "Tie! Both chose " + computerChoice;
+            }
         }
-        else if(humanChoice == "scissors") {
-            humanScore++
-            return "You win! " + humanChoice + " beats" + computerChoice;
-        }
-        else {
-            return "Tie! Both chose " + computerChoice;
+        // bot chose scissors
+        if(computerChoice == "scissors") {
+            if(humanChoice == "rock") {
+                humanScore++
+                return "You win! " + humanChoice + " beats" + computerChoice;
+            }
+            else if(humanChoice == "scissors") {
+                return "Tie! Both chose " + computerChoice;
+            }
+            else {
+                computerScore++
+                return "You lose!" + computerChoice + " beats " + humanChoice; 
+            }
         }
     }
-// bot chose scissors
-    if(computerChoice == "scissors") {
-        if(humanChoice == "rock") {
-            humanScore++
-            return "You win! " + humanChoice + " beats" + computerChoice;
-        }
-        else if(humanChoice == "scissors") {
-            humanScore++
-            return "Tie! Both chose " + computerChoice;
-        }
-        else {
-            computerScore++
-            return "You lose!" + computerChoice + " beats " + humanChoice; 
-        }
-}
-}
 console.log(playRound(finalHumanChoice, finalComputerChoice))
 }
 
 // consoles
 
-console.log(computerScore)
-console.log(humanScore)
+console.log("Computer Score: " + computerScore)
+console.log("Your Score: " + humanScore)
 
 if (computerScore < humanScore) {
     console.log("YOU WIN!!!!!!!!!")
@@ -107,5 +105,5 @@ if (computerScore < humanScore) {
 else if (computerScore = humanScore) {
     console.log("Tie..............")
 }
-else if (computerScore > humanScore) 
-    console.log("YOU LOSE LOL")
+else (computerScore > humanScore) 
+    console.log("HOW'D YOU LOSE TO A COMPUTER!")
