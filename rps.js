@@ -4,7 +4,7 @@ let humanChoice = prompt("Choose rock, paper, or scissors")
 let humanScore = 0
 let computerScore = 0
 
-for (let i = 0; i < 3; i++) {
+for (let i = 0; i < 2; i++) {
 let computerChoice = Math.ceil(Math.random() * 3);
 
 function getComputerChoice() {
@@ -26,7 +26,7 @@ switch (computerChoice) {
 let finalComputerChoice = getComputerChoice(computerChoice)
 console.log("Bot chose: " + finalComputerChoice)
 
-let humanChoice = prompt("Choose rock, paper, or scissors")
+let humanChoice = prompt("Type in rock, paper, or scissors")
 
 function getHumanChoice(humanChoice) {
     switch (humanChoice.toLowerCase()) {
