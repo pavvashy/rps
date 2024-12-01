@@ -1,4 +1,6 @@
-// score
+function launchGame() {
+let humanChoice = prompt("Choose rock, paper, or scissors")
+    // score
 let humanScore = 0
 let computerScore = 0
 
@@ -54,11 +56,11 @@ function playRound(humanChoice, computerChoice) {
             }
             else if(humanChoice == "scissors") {
                 computerScore++
-                return "You lose!" + computerChoice + " beats " + humanChoice;
+                return "You lose! " + computerChoice + " beats " + humanChoice;
             }
             else {
                 humanScore++
-                return "You win!" + humanChoice + " beats " + computerChoice
+                return "You win! " + humanChoice + " beats " + computerChoice
             }
         }
 
@@ -66,11 +68,11 @@ function playRound(humanChoice, computerChoice) {
         if(computerChoice == "paper") {
             if(humanChoice == "rock") {
                 computerScore++
-                return "You lose!" + computerChoice + " beats " + humanChoice; 
+                return "You lose! " + computerChoice + " beats " + humanChoice; 
             }
             else if(humanChoice == "scissors") {
                 humanScore++
-                return "You win! " + humanChoice + " beats" + computerChoice;
+                return "You win! " + humanChoice + " beats " + computerChoice;
             }
             else {
                 return "Tie! Both chose " + computerChoice;
@@ -80,14 +82,14 @@ function playRound(humanChoice, computerChoice) {
         if(computerChoice == "scissors") {
             if(humanChoice == "rock") {
                 humanScore++
-                return "You win! " + humanChoice + " beats" + computerChoice;
+                return "You win! " + humanChoice + " beats " + computerChoice;
             }
             else if(humanChoice == "scissors") {
                 return "Tie! Both chose " + computerChoice;
             }
             else {
                 computerScore++
-                return "You lose!" + computerChoice + " beats " + humanChoice; 
+                return "You lose! " + computerChoice + " beats " + humanChoice; 
             }
         }
     }
@@ -101,9 +103,16 @@ console.log("Your Score: " + humanScore)
 
 if (computerScore < humanScore) {
     console.log("YOU WIN!!!!!!!!!")
-}
-else if (computerScore = humanScore) {
+    }
+else if (computerScore == humanScore) {
     console.log("Tie..............")
-}
-else (computerScore > humanScore) 
+    }
+else 
     console.log("HOW'D YOU LOSE TO A COMPUTER!")
+}
+//this listens for document being loaded
+//then you can press the playBtn to launch the entire game 
+document.addEventListener('DOMContentLoaded', function() {
+const playBtn = document.getElementsByClassName("playBtn");
+playBtn[0].addEventListener("click", launchGame);
+})
